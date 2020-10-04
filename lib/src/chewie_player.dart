@@ -134,9 +134,7 @@ class ChewieState extends State<Chewie> {
       ]);
     }
 
-    if (!widget.controller.allowedScreenSleep) {
-      Wakelock.enable();
-    }
+   
 
     await Navigator.of(context, rootNavigator: true).push(route);
     _isFullScreen = false;
@@ -144,7 +142,6 @@ class ChewieState extends State<Chewie> {
 
     // The wakelock plugins checks whether it needs to perform an action internally,
     // so we do not need to check Wakelock.isEnabled.
-    Wakelock.disable();
 
     SystemChrome.setEnabledSystemUIOverlays(
         widget.controller.systemOverlaysAfterFullScreen);
